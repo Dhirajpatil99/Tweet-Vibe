@@ -18,7 +18,7 @@ def initilaize_driver():
     driver = webdriver.Chrome(options= options, )
     return driver
 
-def login(driver,uname="tweetAsis_2023",pswd="tweetAsis_2023@123"):
+def login(driver,uname="xxxxxx",pswd="xxxxx"):
     #driver Initilaizing
     driver=driver
     time.sleep(3)
