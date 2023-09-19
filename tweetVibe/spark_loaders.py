@@ -1,40 +1,5 @@
-
-
-
 import os
-#import chardet
-# import pyspark
-# from pyspark.ml import PipelineModel
-# from pyspark.sql import SparkSession
-# from helper_functions import clean_tweets
-# import pandas as pd
-
-# # Set HADOOP_HOME to the directory containing winutils.exe
-# os.environ["HADOOP_HOME"] = "C:\\hadoop"
-
-# # # Initialize SparkSession
-# # spark = SparkSession.builder.master("local").appName("ModelSaveExample").getOrCreate()
-
-# spark = SparkSession.builder.master("local").appName("ModelSaveExample") \
-#         .config("spark.driver.extraClassPath", "C:\\hadoop") \
-#         .getOrCreate()
-
-# # Load the PipelineModel from the correct directory
-# model_directory = "spark_saves/pipeline_hash_idf"
-# pipeline_ = PipelineModel.load(model_directory)
-
-# # Read CSV using the correct path
-# csv_path = os.path.abspath("src/tweeets.csv")
-# df = pd.read_csv(csv_path)
-
-# # Apply cleaning function and transform using the loaded model
-# df["tweet_lem"] = df.tweets.apply(lambda x: clean_tweets(x).split())
-# transform_tweets = pipeline_.transform(df)
-
-# # Show the transformed DataFrame
-# print(transform_tweets.head())print("hello")
 import pyspark
-# import findspark
 from pyspark.ml import PipelineModel
 from pyspark.sql import SparkSession
 from helper_functions import clean_tweets
@@ -66,21 +31,8 @@ def spark_predict():
     df_p["prediction"]=df_p.prediction.apply(lambda x : "POSITIVE" if int(x)==1 else "NEGATIVE")
     flag=upload_file(df_p,"predicted.csv")
     return flag
-    # input_folder = "predicted_spark"
-    # output_file = "predicted.csv"
+   
 
         
 
-
-    # with open(output_file, "w") as output:
-    #     for filename in os.listdir(input_folder):
-    #         if filename.endswith(".csv"):
-    #             filepath = os.path.join(input_folder, filename)
-    #             # with open(filepath, 'rb') as file:
-    #             #     result = chardet.detect(file.read())
-    #             #     encoding = result['encoding']
-    #             with open(filepath, "r",encoding="utf-16") as file:
-    #                 output.write(file.read())
-    #                 output.write("\n")  # Add newline after each file
-    # Stop the Spark session
     spark.stop()
