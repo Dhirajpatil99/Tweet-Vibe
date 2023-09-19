@@ -4,9 +4,9 @@ from io import StringIO # python3; python2: BytesIO
 import boto3
 pd.DataFrame.iteritems=pd.DataFrame.items
 
-ACCESS_KEY_ID = 'AKIA4W2VANNNLF4VHPST'
-SECRET_KEY = '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'
-bucket="tweetvibes"
+ACCESS_KEY_ID = 'xxxxxxxx'
+SECRET_KEY = 'xxxxxxx'
+bucket="xxxxxx"
 def read_file(filename,ACCESS_KEY_ID=ACCESS_KEY_ID,SECRET_KEY=SECRET_KEY,bucket=bucket):
     try:
         path = 's3://{}:{}@{}/{}'.format(ACCESS_KEY_ID,SECRET_KEY,bucket,filename)
